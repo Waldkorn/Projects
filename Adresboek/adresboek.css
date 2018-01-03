@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+body {
+	background-color: beige;
+}
+
+h1 {
+	margin: 10px 200px;
+	padding: 0;
+	width: 604px;
+	text-align: center;
+}
+
+#add-person {
+	display: none;
+}
+
+#navigation-bar ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#navigation-bar {
+	width: 604px;
+	margin: 0px 200px;
+}
+
+#navigation-bar li {
+	width: 300px;
+	padding: 0px;
+	text-align: center;
+	background-color: darkgray;
+	display: inline-block;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+#navigation-bar button {
+	display: block;
+	width: 100%;
+	height: 40px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	background-color: darkgray;
+}
+
+#navigation-bar button:hover {
+	background-color: lightgray;
+}
+
+#adress-table {
+	width: 1029px;
+	background-color: darkgray;
+	text-align: center;
+}
+
+#adress-table th {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+#adress-table th, td {
+	border: 1px black solid;
+	border-collapse: collapse;
+}
+
+#name {
+	width: 150px;
+}
+
+#address {
+	width: 200px;
+}
+
+#living-place {
+	width: 150px;
+}
+
+#phone-number {
+	width: 150px;
+}
+
+#email {
+	width: 220px;
+}
+
+#editremove {
+	width: 150px;
+}
+
+#add-person-form {
+	padding: 0px 200px;
+}
+
+#add-person-form div { 
+	display:inline-block;
+	padding: 0px 140px 0px 0px;
+}
+
+.edit {
+	display: inline;
+}
+
+.remove {
+	display: inline;
+}
+
+.edit:hover {
+	color: blue;
+	text-decoration: underline;
+}
+
+.remove:hover {
+	color: blue;
+	text-decoration: underline;
+}

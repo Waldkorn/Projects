@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Adress book</title>
+	<link rel="stylesheet" type="text/css" href="adresboek.css">
+</head>
+
+<body>
+	<div id="header"><h1>Address book</h1></div>
+	
+	<div id="navigation-bar">
+		<ul>
+			<li><button onClick="clickAdressBook()">Address Book</button></li>
+			<li><button onClick="clickAddPerson()">Add person</button></li>
+		</ul>
+	</div>
+	
+	<div id="adress-table">
+		<table id="table">
+		<tr id ="table-head">
+			<th id="name">Name</th>
+			<th id="address">Address</th>
+			<th id="living-place">Place of residence</th>
+			<th id="phone-number">Phone number</th>
+			<th id="email">Email</th>
+			<th id="editremove"></th>
+		</tr>
+		<!--
+		<tr>
+			<td>Ewout Eggens</td>
+			<td>Damsport 19</td>
+			<td>Groningen</td>
+			<td>06-30397521</td>
+			<td>Ewouteggens@hotmail.com</td>
+			<td><div class="edit" onClick="editRow(this)">edit</div> - 
+				<div class="remove" onClick="removeRow(this)">remove</div></td>
+		</tr>
+		<tr>
+			<td>Carla Eggens</td>
+			<td>Oosterhorn 4</td>
+			<td>Ten Boer</td>
+			<td>050-3022930</td>
+			<td>Carla.voort@planet.nl</td>
+			<td><div class="edit" onClick="editRow(this)">edit</div> - 
+				<div class="remove" onClick="removeRow(this)">remove</div></td>
+			</tr>
+		<tr>
+			<td>Mariela Arias</td>
+			<td>Merkelbachstraat 3</td>
+			<td>Groningen</td>
+			<td>06-12345678</td>
+			<td>Marielarias@hotmail.com</td>
+			<td><div class="edit" onClick="editRow(this)">edit</div> - 
+				<div class="remove" onClick="removeRow(this)">remove</div></td>		
+		</tr>
+		-->
+		</table>
+	</div>
+	<div id="add-person">
+		<form name="addPersonForm" id="add-person-form">
+			<div>
+				First name: <br>
+		    	<input type="text" name="firstname" placeholder="first name">
+			</div>
+			<div>
+				Last name: <br>
+				<input type="text" name="lastname" placeholder="last name">
+			</div><br>
+			<div>
+				Address: <br>
+				<input type="text" name="address" placeholder="address">
+			</div>
+			<div>
+				Place of residence: <br>
+				<input type="text" name="place" placeholder="place of residence">
+			</div><br>
+			<div>
+				Phone number: <br>
+				<input type="text" name="phone" placeholder="phone number">
+			</div>
+			<div>
+				Email address: <br>
+				<input type="email" name="email" placeholder="email address">
+			</div> <br>
+			<div>
+				<input type="button" value="submit" onClick="createPerson()">
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript" src="Adresboek.js"></script>
+</body>
+</html>
