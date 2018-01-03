@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calculator</title>
+<style>
+button {
+  width: 40px;
+  height: 30px;
+  padding: 2px;
+  margin: 2px;
+  text-align: center;
+  font-family: "Comic Sans MS";
+}
+.display {
+  border-style: solid;
+  border-width: 1px;
+  width: 40px;
+  height: 30px;
+  padding: 2px 4px;
+  margin: 2px;
+  text-align: right;
+  font-family: "Comic Sans MS";
+}
+</style>
+</head>
+<body>
+<table>
+  <tr>
+    <td colspan="3" class="display" id="display"></td>
+    <td><button onclick="equals()">=</button></td>
+  </tr>
+  <tr>
+    <td><button onclick="enterNumber('7')">7</button></td>
+    <td><button onclick="enterNumber('8')">8</button></td>
+    <td><button onclick="enterNumber('9')">9</button></td>
+    <td><button onclick="operator('plus')">+</button></td>
+  </tr>
+  <tr>
+    <td><button onclick="enterNumber('4')">4</button></td>
+    <td><button onclick="enterNumber('5')">5</button></td>
+    <td><button onclick="enterNumber('6')">6</button></td>
+    <td><button onclick="operator('minus')">-</button></td>
+  </tr>
+  <tr>
+    <td><button onclick="enterNumber('1')">1</button></td>
+    <td><button onclick="enterNumber('2')">2</button></td>
+    <td><button onclick="enterNumber('3')">3</button></td>
+    <td><button onclick="operator('product')">*</button></td>
+  </tr>
+  <tr>
+    <td><button onclick="enterNumber('0')">0</button></td>
+    <td><button onclick="enterNumber('.')">.</button></td>
+    <td><button onclick="empty()">C</button></td>
+    <td><button onclick="operator('divide')">/</button></td>
+  </tr>
+</table>
+
+<script>
+displayShow = "";
+resolve = false;
+
+function enterNumber(input) {
+  if (resolve == true) {
+    displayShow = "";
+    resolve = false;
+    }
+  else {}
+  displayShow += input;
+  document.getElementById("display").innerHTML = displayShow;
+}
+
+function operator(input) {
+  if (displayShow == "") {
+    }
+  else if (input == "plus") {
+    operation = "plus";
+    var1 = Number(displayShow);
+    displayShow = "";
+    document.getElementById("display").innerHTML = displayShow;
+    }
+  else if (input == "minus") {
+    operation = "minus";
+    var1 = Number(displayShow);
+    displayShow = "";
+    document.getElementById("display").innerHTML = displayShow;
+    }
+  else if (input == "product") {
+    operation = "product";
+    var1 = Number(displayShow);
+    displayShow = "";
+    document.getElementById("display").innerHTML = displayShow;
+    }
+  else if (input == "divide") {
+    operation = "divide";
+    var1 = Number(displayShow);
+    displayShow = "";
+    document.getElementById("display").innerHTML = displayShow;
+    }
+  else {
+    displayShow = error;
+    document.getElementById("display").innerHTML = displayShow;
+    }
+}
+
+function equals() {
+  if (var1 != "" & displayShow !="") {
+    resolve = true;
+    var2 = Number(displayShow);
+    if (operation == "plus") {
+      displayShow = var1 + var2;
+      document.getElementById("display").innerHTML = displayShow;
+      }
+    else if (operation == "minus") {
+      displayShow = var1 - var2;
+      document.getElementById("display").innerHTML = displayShow;
+      }
+    else if (operation == "product") {
+      displayShow = var1 * var2;
+      document.getElementById("display").innerHTML = displayShow;
+      }
+    else if (operation == "divide") {
+      displayShow = var1 / var2;
+      document.getElementById("display").innerHTML = displayShow;
+      }
+    else {
+      document.getElementById("display").innerHTML = "error";
+      }
+    }
+  }
+
+function empty() {
+  var1 = "";
+  var2 = "";
+  resolve = false;
+  displayShow = "";
+  document.getElementById("display").innerHTML = displayShow;
+}
+</script>
+</body>
+</html>
