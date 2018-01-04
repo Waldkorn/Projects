@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- bootstrap stylesheet -->
+	<link rel="stylesheet" type="text/css" href="POP.css">
+	<title>Ewout Eggens</title>
+
+</head>
+<body>
+
+	<!-- navigation bar -->
+	<div id="navbar">
+		<ul>
+			<li onClick="navigate(this)" class="nav" id="navHome">Home</li>
+			<li onClick="navigate(this)" class="nav">PDP</li>
+			<li onClick="navigate(this)" class="nav">Portfolio</li>
+			<li onClick="navigate(this)" class="nav" id="navAbout">About me</li>
+		</ul>
+	</div>
+
+	<!-- Home -->
+	<div id="Home" class="content">
+		<h1>Welcome!</h1>
+		<p>
+			Welcome to my personal website. Here you will find an overall picture of my development as a programmer.
+		</p>
+		<h2>PDP</h2>
+		<p>
+		Under the PDP tab you will find my personal development plan. I have divided this plan into four different phases:
+		</p>
+		<ul>
+			<li>
+				<h3>Orientation phase</h3>
+				<p>
+					In the orientation phase I will mostly gather information on what programming language are best suited for my needs. A healthy combination of dreaming and pragmatism are key here. The goal is to try a lot of different programming languages and see which one I like. Also, now is the time to start oriënting on which programming languages are in demand, so that I can focus my efforts on a language that put me in a favorable position on the market. Anything is still possible in this phase. 
+				</p>
+			</li>
+			<li>
+				<h3>Development phase</h3>
+				<p>
+					In the development phase I will start focusing my efforts, while still keeping some room for peripheral activities. From the orientation phase I have distilled an aim but it's not set in stone. In this phase I will do lots of small projects and challenges so that I can expand my programming knowledge quickly and practically. I personally believe a hands-on approach is the best approach when trying to learn programming.
+				</p>
+			</li>
+			<li>
+				<h3>Specialization phase</h3>
+				<p>
+					In the specialization phase I double down on a very specific list of skills that I want to learn. From the development phase I now have a good foundation on which I can build extensive programming knowledge. In this phase I will start reading books and texts to supplement my experience. I will have a clear goal and I know what I will have to learn to get where I want to be. At the same time I will take on a big project as a crowning piece on my portfolio.
+				</p>
+			</li>
+			<li>
+				<h3>Dream phase</h3>
+				<p>
+					The dream phase is a long term goal that may or may not be fulfilled in the future. I believe it is good to have high goals, because they give you something to work towards. At the same time, you must not take these goals so seriously that they'll demotivate you if you can't attain them. For this section I asked my self the question "if there were no limitations, what would I want to do?" Then, whenever I am faced with a fork in the road, I can make the decision that is most in line with my dream goal.
+				</p>
+			</li>
+		</ul>
+		<h2>Portfolio</h2>
+		<p>
+			In my portfolio you can see the projects that I have finished and the ones I'm currently working on.
+		</p>
+	</div>
+
+	<!-- PDP -->
+	<div id="PDP" class="content">
+		<div id="orientation">
+			<div class="progress" onclick="toggleContent(this)">
+				<!--
+				<div class="progress-text"><div style="position: relative; left: -50%;">Phase 1: Orientation</div></div>
+				<div class="progress-bar" style="width:100%;"></div>
+				-->
+				Phase 1: Orientation
+			</div>
+			<div class="progressContent">
+				<ul>
+					<li class="nonhover complete" onClick="toggleContent(this)">Get a basic understanding of HTML, CSS and Javascript.</li>
+					<div style="display:none;">
+						<p>I used the website Code Academy to learn the basics of website programming.</p>
+						<ul>
+							<li class="complete">Learn basic HTML</li>
+							<li class="complete">Learn basic CSS</li>
+							<li class="complete">Learn basic Javascript</li><br>
+						</ul>
+					</div>
+					<li class="nonhover complete" onClick="toggleContent(this)">Try out a few programming languages</li>
+					<div style="display:none;">
+						<p>I used the website Code Academy for this.</p>
+						<ul>
+							<li class="complete">Learn basic Java</li>
+							<li class="complete">Learn basic Python</li>
+							<li class="complete">Learn basic PHP</li><br>
+						</ul>
+					</div>
+					<li class="nonhover complete" onClick="toggleContent(this)">Learn some peripheral skills</li>
+					<div style="display:none;">
+						<ul><br>
+							<li class="complete">Learn git/github</li>
+							<li class="complete">Learn command line</li><br>
+						</ul>
+					</div>
+					<li class="nonhover complete" onclick="toggleContent(this)">Train my HTML, CSS and Javascript skills with small exercises</li>
+					<div style="display: none">
+						<ul><br>
+							<li class="complete">I made a simple 
+								<a href="https://github.com/Waldkorn/Projects/tree/master/Calculator" target="_blank">calculator</a>
+								 as a first exercise.</li>
+							<li class="complete">I practiced Javascript on <a href="https://www.codewars.com/users/Stonemilker" target="_blank">Code Wars</a>.</li><br>
+						</ul>
+					</div>
+					<li class="nonhover complete">Research which programming languages are in high demand at the moment</li>
+				</ul>
+			</div>
+		</div>
+		<div id="development">
+			<div class="progress" onclick="toggleContent(this)">
+				<!--
+				<div class="progress-text"><div style="position: relative; left: -50%;">Phase 2: Development</div></div>
+				<div class="progress-bar" style="width:20%;"></div>
+				-->
+				Phase 2: Development
+			</div>
+			<div class="progressContent">
+				<p>
+					By now I have realized that I would like to be a back-end developer. Not only do I enjoy <del>being a code monkey</del> programming, it also suits my analytical background. The rush of euphoria you experience after struggling with a particularly difficult piece of code and then solving it is the same feeling that drew me towards studying mathematics in the past. From my talks with other programmers it seems the programming languages that are in high demand are Java and PHP. Me, being a pragmatic person, have decided to start learning both.
+				</p>
+				<ul>
+					<li class="nonhover" onClick="toggleContent(this)">Get access to the CodeGorilla bootcamp.</li>
+					<div style="display:none;">
+						<ul><Br>
+							<li class="complete">Review HTML, CSS and javascript.</li>
+							<li class="complete">Make an <a href="https://github.com/Waldkorn/Projects/tree/master/Adresboek" target="_blank">
+							address book</a>.</li>
+							<li class="complete">Make a Personal Development Plan.</li>
+							<li>Participate in a hackaton</li>
+						</br>
+					</div>
+					<li class="nonhover" onclick="toggleContent(this)">Study PHP</li>
+					<div style="display:none;">
+						<p>
+							Since studying PHP will be highly influenced by the CodeGorilla bootcamp, I have no clear aims in this catagory yet. The bootcamp seems to have a high focus on projects.
+						</p>
+					</div>
+					<li class="nonhover" onclick="toggleContent(this)">Study JAVA</li>
+					<div style="display:none;"><br>
+						<ul>
+							<li>Finish the <a href="http://mooc.fi/courses/2013/programming-part-1/" target="_blank"> MOOC Object Oriented Programming with Java from the University of Helsinki</a>.</li>
+							<li>Do a self study JAVA course or an online university course that will end up in me passing my exam to become an Oracle Certified Associate.</li><br>
+						</ul>
+					</div>
+					<li class="nonhover" onclick="toggleContent(this)">Do projects to expand my portfolio.</li>
+					<div style="display: none;"><br>
+						<ul>
+							<li>Do some of these <a href="https://github.com/karan/Projects" target="_blank">fun exercises</a> to get more experience below my belt.</li>
+							<li>Participate in opensource projects on gitHub.</li>
+							<li>Start my own project. For example, an idle game.</li><br>
+						</ul>
+					</div>
+					<li class="nonhover" onclick="toggleContent(this)">Get acquainted with agile scrum.</li>
+					<div style="display: none;">
+						<p>A working knowledge of agile scrum is in high demand these days, learning this skill will be a great asset in the search for work</p>
+					</div>
+				</ul>
+			</div>
+		</div>
+		<div id="specialization">
+			<div class="progress" onclick="toggleContent(this)">
+				<!--
+				<div class="progress-text"><div style="position: relative; left: -50%;">Phase 3: Specialization</div></div>
+				<div class="progress-bar" style="width:0%;"></div>
+			-->
+			Phase 3: Specialization
+			</div>
+			<div id="specialization-content" class="progressContent">
+				<p>At this point I should have enough programming experience and enough of a portfolio to start finding work in the IT sector as a software developer. Since one of my main motivators in life is personal development, I would prefer to work for a company that is willing to invest into expanding the knowledge of their employees. This section will become more defined as I get further along in the development phase.</p>
+				<ul>
+					<li class="nonhover" onclick="toggleContent(this)">Decide upon a career path.</li>
+					<div style="display:none;">
+						<p>
+							By now I will have a clear idea of which area I would like to specialize in. PHP is mostly web development and JAVA is more focused on computer programs.
+						</p>
+					</div>
+					<li class="nonhover" onclick="toggleContent(this)">Find employment</li>
+					<div style="display:none;">
+						<p>
+							Finding a company that will give me the room to grow as a software developer will be key in my development.
+						</p>
+					</div>
+				</ul>
+			</div>
+		</div>
+		<div id="dream">
+			<div class="progress" onclick="toggleContent(this)">
+				<!--
+					<div class="progress-text"><div style="position: relative; left: -50%;">Phase 4: Dream phase</div></div>
+					<div class="progress-bar" style="width:0%;"></div>
+				-->
+				Phase 4: Dream phase
+			</div>
+			<div class="progressContent"><br>
+				<center><a href="https://www.blizzard.com/en-us/" target="_blank">
+					<img src="Images/Blizzard.jpg" alt="Blizzard logo" id="blizzardPic">
+				</a></center>
+				<p>
+					My favorite company has always been Blizzard. Their long term vision and their "gameplay first" attitude are really second to none. I have played literally every game they have developed, and enjoyed every hour of it.  If I could somehow work for this wonderful company at some point in my life, I would feel very accomplished. <br>
+					Sometimes I hop over to their <a href="https://careers.blizzard.com/en-gb/openings/engineering/all/all/all/1" target="_blank">job page</a> to get some extra motivation towards working hard.
+				</p>
+				<center><div id="spaceCorps">
+					<a href="http://www.spacex.com/" target="_blank"><img src="Images/SpaceX.png" alt="SpaceX logo"></a>
+					<a href="https://www.nasa.gov/" target="_blank"><img src="Images/Nasa.png" alt="NASA logo"></a>
+					<a href="http://www.esa.int/ESA" target="_blank"><img src="Images/ESA.png" alt="ESA logo"></a>
+				</div></center> 
+				<br>
+				<p>
+					Every boy dreams of space and I'm no exception. The companies that are pushing us into the final frontier are usually on the lookout for engineers, so it is my understanding that they outsource their software needs (with the exception of SpaceX, who's business model revolves around outsourcing as little as possible). Researching which companies are being contracted by these three space giants might be a good step towards becoming involved in space exploration.
+				</p>
+			</div>
+		</div>
+		<div style="text-align: center;">** Click on goals <b>and subgoals</b> to get more details **</div>
+	</div>
+
+	<!-- Portfolio -->
+	<div id="Portfolio" class="content">
+		<table>
+			<tr>
+				<div class="project">
+				<td>
+					<img src="Images/PersonalPage.png" alt="Personal Page">
+				</td>
+				<td>
+				<div class="pictureText">
+					<h2>Personal webpage</h2>
+					<p>
+						I built a personal webpage that contains a personal development plan and a portfolio, you're looking at it now! With this project I learned that my aptitudes include coding more than design. I had a blast getting the interactivity and the framework to work, but struggled with making things pretty. I also started adding comments to my javascript, because they easily become a mess if you don't.
+					</p>
+				</div>
+				</td>
+				</div>
+			</tr>
+			<tr>
+				<div class="project">
+				<td>
+					<a href="https://github.com/Waldkorn/Projects/tree/master/Adresboek" target="_blank"><img src="Images/Addressbook.png" alt="Adress book image"></a>
+				</td>
+				<td>
+				<div class="pictureText">
+					<h2>Address book</h2>
+					<p>
+						I built an address book with a local storage for my next exercise. The focus of this exercise was mainly on Javascript on there was a lot to be learned. The mark of a good project is that feeling of "I would have done things entirely differently if I had to do it again", that means you learned something. With this project I had that feeling very strongly. 
+					</p>
+					<p>
+						The address book functions exactly as it should, but the code is a little clumsy in some places. I did not want to use a tutorial, because it was a learning project and I didn't want to copy code blindly. I added all functionality and then the localstorage, which is definitely the wrong way around. Aside from that I think the project was great as a learning experience. My understanding of javascript and writing clean code improved a lot.
+					</p>
+					</div>
+				</td>
+				</div>
+			</tr>
+			<tr>
+				<div class="project">
+				<td>
+					<a href="https://github.com/Waldkorn/Projects/tree/master/Calculator" target="_blank"><img src="Images/Calculator.png" alt="Calculator Image"></a>
+				</td>
+				<td>
+					<div class="pictureText">
+						<h2>Simple calculator</h2>
+						<p>
+							My very first excercise was to build a simple calculator. This was a good way to get acquainted with using HTML, CSS and Javascript. This was a project where I learned that programming often means that debugging takes up a big chunk of your time. I also used one file for my HTML, CSS and javascript. That's something I won't be doing in the future again because when a project gets big it's easy to lose track of where everything is.
+						</p>
+					</div>
+				</td>
+				</div>
+			</tr>
+		</table>
+	</div>
+
+	<!-- About me -->
+	<div id="About me" class="content about">
+		<img src="Images/Ewout.jpg" alt="Foto van Ewout" class="foto">
+		<h1>Personal bio</h1>
+		<p>
+			Welcome to my personal webpage! My name is Ewout Eggens and I'm an aspiring programmer. In my spare time I enjoy gaming, playing chess and watching movies with friends. To satisfy my adventurous side I sometimes mountainbike and snowboard.
+		</p>
+		<p>
+			I have an open attitude and I enjoy learning new things. I have an analytical mind and enjoy solving abstract problems. 
+		</p>
+	</div>
+
+	<!-- Jquery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Javascript -->
+	<script type="text/javascript" src="POP.js"></script>
+
+</body>
+</html>
