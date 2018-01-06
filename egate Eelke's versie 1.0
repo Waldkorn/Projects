@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>E-gate</title>
+	<link href="https://fonts.googleapis.com/css?family=Hind+Siliguri|Play" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+
+</head>
+<body>
+	<div class="container">
+
+		<div class="title">
+			<h1><b>E-Gate</b></h1>
+		</div>
+		
+		<nav class="buttonGroup">
+			<button id="nuParkeren" class="btnMenu"><span>Park Now</span></button>
+			<button id="accountBedrijven" class="btnMenu"><span>My bussines</span></button>
+			<button id="overOns" class="btnMenu"><span>About us</span></button>
+		</nav>
+		
+		<div id="loginForm" class="contentElements">
+			<h3 class="header3"> Login to park</h3>
+			<label for="usernameUser">Username</label><input type="text"  class="formFields">
+			</br>
+			<label for="passwordUser">Password</label><input type="text" class="formFields">
+			</br>
+			<button id="loginUser" class="btnLogin">Login</button><button id="cancelUser">Cancel</button>
+		</div>
+		
+		<div id="bedrijven" class="contentElements">
+			<h3 class="header3"> Login or create an account</h3>
+			<button id="loginBedrijf" class="btnLogin">Login</button><button id="maakAccount">Create account</button>
+		</div>
+		
+		<div id="loginFormBedrijven" class="contentElements">
+			<h3 class="header3"> Login bedrijven</h3>
+			<label for="userNameCompany">Username</label><input type="text" class="formFields">
+			</br>
+			<label for="passwordCompany">Password</label><input type="text" class="formFields">
+			</br>
+			<button id="loginUser" class="btnLogin">Login</button><button id="cancelUser">Cancel</button>
+		</div>
+		
+		<div id="btnAccountMaken" class="contentElements">
+			<h3 class="header3"> Please fill out your information</h3>
+			<label for="bedrijfsnaam">Company name</label><input type="text" id="bedrijfsnaam" class="formFields">
+			</br>
+			<label for="parkeerSysteem">Parkingsystem</label><input type="text" id="parkeerSysteem" class="formFields">
+			</br>
+			<label for="companyPassword">Password</label><input type="text" class="formFields">
+			</br>
+			<button id="loginUser" class="btnLogin">OK</button><button id="cancelUser">Cancel</button>
+		</div>
+</body>
+
+<script>
+		var btnNuparkeren = document.getElementById('nuParkeren');
+		var btnAccountB = document.getElementById('accountBedrijven');
+		var btnOverOns = document.getElementById('overOns');
+		var btnBedrijfLog = document.getElementById('loginBedrijf');
+		var btnAccountM = document.getElementById('maakAccount');
+		var userLogin = document.getElementById('loginUser');
+
+		btnNuparkeren.style.cursor = 'pointer';
+		btnNuparkeren.onclick = function(){
+			document.getElementById("loginFormBedrijven").style.display = "none";
+			document.getElementById("bedrijven").style.display = "none";
+			document.getElementById("loginForm").style.display = "block";
+			document.getElementById("btnAccountMaken").style.display = "none";
+		};
+		
+		btnAccountB.style.cursor = 'pointer';
+		btnAccountB.onclick = function(){
+			document.getElementById("loginForm").style.display = "none";
+			document.getElementById("loginFormBedrijven").style.display = "none";
+			document.getElementById("bedrijven").style.display = "block";
+			document.getElementById("btnAccountMaken").style.display = "none";
+		};
+		
+		btnOverOns.style.cursor = 'pointer';
+		btnOverOns.onclick = function(){
+			document.getElementById("loginForm").style.display = "none";
+			document.getElementById("loginFormBedrijven").style.display = "none";
+			document.getElementById("bedrijven").style.display = "none";
+			document.getElementById("btnAccountMaken").style.display = "none";
+		};
+		
+		btnBedrijfLog.style.cursor = 'pointer';
+		btnBedrijfLog.onclick = function(){
+			document.getElementById("loginForm").style.display = "none";
+			document.getElementById("loginFormBedrijven").style.display = "block";
+			document.getElementById("bedrijven").style.display = "none";
+			document.getElementById("btnAccountMaken").style.display = "none";
+		};
+		
+		btnAccountM.style.cursor = 'pointer';
+		btnAccountM.onclick = function(){
+			document.getElementById("loginFormBedrijven").style.display = "none";
+			document.getElementById("bedrijven").style.display = "none";
+			document.getElementById("loginForm").style.display = "none";
+			document.getElementById("btnAccountMaken").style.display = "block";
+		};
+		/*
+		userLogin.onclick = function(){
+			document.getElementById("loginUser").style. = red;
+		}
+		*/
+</script>
+</html>
