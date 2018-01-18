@@ -1,6 +1,9 @@
 var username = "";
 var key = "ewout"
 var xhr = new XMLHttpRequest();
+var highestId = 0;
+
+var correctids = [464, 465, 466, 467, 468, 469, 471, 464];
 
 function login() {
 	username = document.getElementById("username-input").value
@@ -48,4 +51,24 @@ function grabMessageById(id) {
 function postMessage(message) {
 	xhr.open("POST", "https://codegorilla.nl/read_write/api.php?action=write&mykey=ewout&value=" + message, false);
 	xhr.send();
+	console.log(xhr.response);
 }
+
+function refreshChat() {
+	var messageScreen = document.getElementById("message-screen");
+	for (i = 0; i < correctids.length; i++) {
+		if (correctids[i] > highestId) {
+			grabMessageById(correctids[i]);
+			var newMessage = xhr.response;
+
+			messageScreen.innerHTML += newMessage + "<br>";
+
+			scrollToBottom("message-screen");
+			highestId = correctids[i];
+			console.log(highestId);
+		}
+	}
+}
+window.setInterval(function(){
+	refreshChat();
+}, 5000);
