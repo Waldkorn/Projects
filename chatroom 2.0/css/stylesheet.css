@@ -18,8 +18,8 @@
 	float: right;
 	border-radius: 10px;
 	position: relative;
-	padding: 3px;
-	margin: 1px;
+	padding: 3px 10px;
+	margin: 3px;
 	clear: both;
 }
 
@@ -28,8 +28,8 @@
 	float: left;
 	border-radius: 10px;
 	position: relative;
-	padding: 3px;
-	margin: 1px;
+	padding: 3px 10px;
+	margin: 3px;
 	clear: both;
 }
 

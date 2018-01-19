@@ -58,11 +58,11 @@ function refreshChat(correctids) {
 			console.log(messageId);
 			if (myKeys.includes(messageId)) {
 				var newMessage = JSON.parse(grabMessageById(key, messageId)).value;
-				messageScreen.innerHTML += "<div class=myMessage>" + key + ": <br>" + newMessage + "</div><br>";
+				messageScreen.innerHTML += "<div class=myMessage><b>" + key + ": </b><br>" + newMessage + "</div><br>";
 				console.log("ewout");
 			} else if (yourKeys.includes(messageId)) {
 				var newMessage = JSON.parse(grabMessageById(otherkey, messageId)).value;
-				messageScreen.innerHTML += "<div class=yourMessage>" + otherkey + ": <br>" + newMessage + "</div><br>";
+				messageScreen.innerHTML += "<div class=yourMessage><b>" + otherkey + ": </b><br>" + newMessage + "</div><br>";
 				console.log("raymond");
 			} else {
 				console.log("didn't work")
