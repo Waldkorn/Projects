@@ -48,7 +48,6 @@ function refreshChat() {
 			var messageId = correctids[i];
 			var newMessage = JSON.parse(grabMessageById(messageId)).value;
 
-
 			messageScreen.innerHTML += newMessage + "<br>";
 
 			scrollToBottom("message-screen");
