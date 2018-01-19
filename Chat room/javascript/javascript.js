@@ -69,6 +69,21 @@ function refreshChat() {
 		}
 	}
 }
+
 window.setInterval(function(){
+	getAllMessageIds();
 	refreshChat();
 }, 5000);
+
+function getAllMessageIds() {
+	xhr.open("GET" , "https://codegorilla.nl/read_write/api.php?action=list&mykey=ewout", false);
+	xhr.send();
+	correctids = xhr.response;
+	correctids = correctids.split(",");
+	console.log(correctids);
+	for (i = 0 ; i < correctids.length; i++) {
+		correctids[i] = parseInt(correctids[i]);
+	}
+	console.log(correctids[i]);
+	console.log(typeof correctids[i]);
+}
