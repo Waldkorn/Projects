@@ -1,38 +1,33 @@
 var username = "";
 var key = "ewout"
-var xhr = new XMLHttpRequest();
-var highestId = 0;
-
-//var correctids = [464, 465, 466, 467, 468, 469, 471, 464];
+var request = new XMLHttpRequest();
+var highestId = 2000;
+var messageScreen = document.getElementById("message-screen");
 
 function login() {
-	username = document.getElementById("username-input").value
+	username = getUserName();
+	key = getKey();
 
-	document.getElementById("login-screen").style.display = "none";
-	document.getElementById("chatroom").style.display = "block";
+	hideLoginScreen();
+	showChatroom();
 
 	scrollToBottom("message-screen");
+
+	window.setInterval(function(){
+		getAllMessageIds();
+		refreshChat();
+	}, 1000);
 }
 
 function sendMessage() {
 
-	//define variables
-	var messageScreen = document.getElementById("message-screen");
-	var messageString = username + ": " + document.getElementById("chat-text-area").value;
+	//finds the the message that has to be displayed
+	var messageString = "<b>" + username + ": </b>" + document.getElementById("chat-text-area").value;
 
 	//only submit a message if the message isn't nothing
 	if (messageString != "") {
 		// sends message to server
 		postMessage(messageString);
-		var messageId = xhr.response;
-
-		// grabs message from server
-		grabMessageById(messageId);
-		var newMessage = xhr.response;
-
-		//messageScreen.innerHTML += newMessage + "<br>";
-
-		//highestID = messageId;
 	}
 
 	//reset text input field
@@ -42,49 +37,62 @@ function sendMessage() {
 	scrollToBottom("message-screen");
 }
 
+function refreshChat() {
+	for (i = 0; i < correctids.length; i++) {
+		if (correctids[i] >= highestId) {
+			var messageId = correctids[i];
+
+			grabMessageById(messageId);
+			var newMessage = request.response;
+
+			messageScreen.innerHTML += newMessage + "<br>";
+
+			scrollToBottom("message-screen");
+			highestId = messageId + 1;
+		}
+	}
+}
+
+function getAllMessageIds() {
+	request.open("GET" , "https://codegorilla.nl/read_write/api.php?action=list&mykey=" + key, false);
+	request.send();
+	correctids = request.response;
+
+	//correctids word van stringformaat overgezet naar array formaat met integers
+	correctids = correctids.split(",");
+	for (i = 0 ; i < correctids.length; i++) {
+		correctids[i] = parseInt(correctids[i]);
+	}
+}
+
 function scrollToBottom(id){
    var div = document.getElementById(id);
    div.scrollTop = div.scrollHeight - div.clientHeight;
 }
 
 function grabMessageById(id) {
-	xhr.open("GET", "https://codegorilla.nl/read_write/api.php?action=read&mykey=" + key + "&id=" + id, false);
-	xhr.send();
+	request.open("GET", "https://codegorilla.nl/read_write/api.php?action=read&mykey=" + key + "&id=" + id, false);
+	request.send();
 }
 
 function postMessage(message) {
-	xhr.open("POST", "https://codegorilla.nl/read_write/api.php?action=write&mykey=" + key + "&value=" + message, false);
-	xhr.send();
-	console.log(xhr.response);
+	request.open("POST", "https://codegorilla.nl/read_write/api.php?action=write&mykey=" + key + "&value=" + message, false);
+	request.send();
+	console.log(request.response);
 }
 
-function refreshChat() {
-	var messageScreen = document.getElementById("message-screen");
-	for (i = 0; i < correctids.length; i++) {
-		if (correctids[i] >= highestId) {
-			grabMessageById(correctids[i]);
-			var newMessage = xhr.response;
-
-			messageScreen.innerHTML += newMessage + "<br>";
-
-			scrollToBottom("message-screen");
-			highestId = correctids[i] + 1;
-			console.log(highestId);
-		}
-	}
+function getUserName() {
+	return document.getElementById("username-input").value;
 }
 
-window.setInterval(function(){
-	getAllMessageIds();
-	refreshChat();
-}, 1000);
+function getKey() {
+	return document.getElementById("chatroom-input").value;
+}
 
-function getAllMessageIds() {
-	xhr.open("GET" , "https://codegorilla.nl/read_write/api.php?action=list&mykey=" + key, false);
-	xhr.send();
-	correctids = xhr.response;
-	correctids = correctids.split(",");
-	for (i = 0 ; i < correctids.length; i++) {
-		correctids[i] = parseInt(correctids[i]);
-	}
+function hideLoginScreen() {
+	document.getElementById("login-screen").style.display = "none";	
+}
+
+function showChatroom() {
+	document.getElementById("chatroom").style.display = "block";
 }
