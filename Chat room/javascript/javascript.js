@@ -2,21 +2,26 @@ var username = "";
 var key = "ewout"
 var request = new XMLHttpRequest();
 var highestId = 2000;
+
 var messageScreen = document.getElementById("message-screen");
 
 function login() {
 	username = getUserName();
 	key = getKey();
 
-	hideLoginScreen();
-	showChatroom();
+	if (username != "") {
 
-	scrollToBottom("message-screen");
+		hideLoginScreen();
+		showChatroom();
 
-	window.setInterval(function(){
-		getAllMessageIds();
-		refreshChat();
-	}, 1000);
+		window.setInterval(function(){
+			getAllMessageIds();
+			refreshChat();
+		}, 1000);
+
+	} else {
+		alert("please submit a username")
+	}
 }
 
 function sendMessage() {
@@ -41,9 +46,8 @@ function refreshChat() {
 	for (i = 0; i < correctids.length; i++) {
 		if (correctids[i] >= highestId) {
 			var messageId = correctids[i];
+			var newMessage = JSON.parse(grabMessageById(messageId)).value;
 
-			grabMessageById(messageId);
-			var newMessage = request.response;
 
 			messageScreen.innerHTML += newMessage + "<br>";
 
@@ -54,6 +58,7 @@ function refreshChat() {
 }
 
 function getAllMessageIds() {
+	//vraagt de ids aan die bij de chatroom horen
 	request.open("GET" , "https://codegorilla.nl/read_write/api.php?action=list&mykey=" + key, false);
 	request.send();
 	correctids = request.response;
@@ -71,14 +76,14 @@ function scrollToBottom(id){
 }
 
 function grabMessageById(id) {
-	request.open("GET", "https://codegorilla.nl/read_write/api.php?action=read&mykey=" + key + "&id=" + id, false);
+	request.open("GET", "https://codegorilla.nl/read_write/api.php?action=read&format=json&mykey=" + key + "&id=" + id, false);
 	request.send();
+	return request.response;
 }
 
 function postMessage(message) {
 	request.open("POST", "https://codegorilla.nl/read_write/api.php?action=write&mykey=" + key + "&value=" + message, false);
 	request.send();
-	console.log(request.response);
 }
 
 function getUserName() {
