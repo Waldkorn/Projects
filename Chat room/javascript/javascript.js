@@ -3,13 +3,15 @@ var key = "ewout"
 var xhr = new XMLHttpRequest();
 var highestId = 0;
 
-var correctids = [464, 465, 466, 467, 468, 469, 471, 464];
+//var correctids = [464, 465, 466, 467, 468, 469, 471, 464];
 
 function login() {
 	username = document.getElementById("username-input").value
 
 	document.getElementById("login-screen").style.display = "none";
 	document.getElementById("chatroom").style.display = "block";
+
+	scrollToBottom("message-screen");
 }
 
 function sendMessage() {
@@ -28,7 +30,9 @@ function sendMessage() {
 		grabMessageById(messageId);
 		var newMessage = xhr.response;
 
-		messageScreen.innerHTML += newMessage + "<br>";
+		//messageScreen.innerHTML += newMessage + "<br>";
+
+		//highestID = messageId;
 	}
 
 	//reset text input field
@@ -49,7 +53,7 @@ function grabMessageById(id) {
 }
 
 function postMessage(message) {
-	xhr.open("POST", "https://codegorilla.nl/read_write/api.php?action=write&mykey=ewout&value=" + message, false);
+	xhr.open("POST", "https://codegorilla.nl/read_write/api.php?action=write&mykey=" + key + "&value=" + message, false);
 	xhr.send();
 	console.log(xhr.response);
 }
@@ -57,14 +61,14 @@ function postMessage(message) {
 function refreshChat() {
 	var messageScreen = document.getElementById("message-screen");
 	for (i = 0; i < correctids.length; i++) {
-		if (correctids[i] > highestId) {
+		if (correctids[i] >= highestId) {
 			grabMessageById(correctids[i]);
 			var newMessage = xhr.response;
 
 			messageScreen.innerHTML += newMessage + "<br>";
 
 			scrollToBottom("message-screen");
-			highestId = correctids[i];
+			highestId = correctids[i] + 1;
 			console.log(highestId);
 		}
 	}
@@ -73,17 +77,14 @@ function refreshChat() {
 window.setInterval(function(){
 	getAllMessageIds();
 	refreshChat();
-}, 5000);
+}, 1000);
 
 function getAllMessageIds() {
-	xhr.open("GET" , "https://codegorilla.nl/read_write/api.php?action=list&mykey=ewout", false);
+	xhr.open("GET" , "https://codegorilla.nl/read_write/api.php?action=list&mykey=" + key, false);
 	xhr.send();
 	correctids = xhr.response;
 	correctids = correctids.split(",");
-	console.log(correctids);
 	for (i = 0 ; i < correctids.length; i++) {
 		correctids[i] = parseInt(correctids[i]);
 	}
-	console.log(correctids[i]);
-	console.log(typeof correctids[i]);
 }
