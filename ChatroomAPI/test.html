@@ -8,11 +8,12 @@
 	var request = new XMLHttpRequest();
 	var message = "";
 
-	request.open("GET" , "/api.php?lastid=1", false);
+	request.open("PUT" , "/api.php?mykey=ewout&value=hoi", false);
 	request.send();
-	message = JSON.parse(request.response).message;
 	console.log(request);
-	//message = request.reponse;
+	//message = JSON.parse(request.response).message;
+	
+	message = request.reponse;
 
 	console.log(message);
 

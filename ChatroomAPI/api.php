@@ -5,27 +5,52 @@
 
 	$verb = $_SERVER['REQUEST_METHOD'];
 	$my_file = 'file.txt';
-	$messages = openMessage($my_file);
-	//var_dump($messages);
+	$messages = json_decode(openFile($my_file));
+	$i = count($messages);
+
+	var_dump($i);
 
 	if ($verb == "GET") {
+
 		if (isset($_GET['lastid'])) {
+
 			http_response_code(200);
-			echo response(openMessage($my_file));
+			echo response(openFile($my_file));
+
+		} else {
+
+			http_response_code(400);
+
 		}
+
 	} elseif ($verb == "PUT") {
-		writeMessage($my_file, $messages);
-		http_response_code(200);
+
+		if (isset($_GET['mykey']) and isset($_GET['value'])) {
+
+			$newMessage = array($i, $_GET['mykey'], $_GET['value']);
+			array_push($messages, $newMessage);
+			writeFile($my_file, $messages);
+			http_response_code(200);
+			$i++;
+
+		} else {
+
+			http_response_code(400);
+
+		}
+
 	} else {
+
 		http_response_code(400);
+
 	}
 
-	function openMessage($file) {
+	function openFile($file) {
 		$handle = fopen($file, 'r');
 		return fread($handle,filesize($file));
 	}
 
-	function writeMessage($file, $message) {
+	function writeFile($file, $message) {
 		$message = json_encode($message);
 		$handle = fopen($file, 'w');
 		fwrite($handle, $message);
