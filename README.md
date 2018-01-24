@@ -7,3 +7,5 @@ Adresboek: An adress book I made for the CodeGorilla bootcamp project.
 POP: A personal website with a personal development plan and portfolio.
 
 Chat room: a simple chat room that uses some PHP
+
+ChatroomAPI: the API that interfaces with the chat room
