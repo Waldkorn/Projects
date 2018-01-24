@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="test"></p>
+
+<script>
+	var request = new XMLHttpRequest();
+	var message = "";
+
+	request.open("GET" , "/api.php?lastid=1", false);
+	request.send();
+	message = JSON.parse(request.response).message;
+	console.log(request);
+	//message = request.reponse;
+
+	console.log(message);
+
+	document.getElementById("test").innerHTML = message;
+</script>
+
+</body>
+</html>
